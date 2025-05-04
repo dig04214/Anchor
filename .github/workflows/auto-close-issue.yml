@@ -20,4 +20,4 @@ jobs:
       - name: Closes issues related to a merged pull request.
         uses: ldez/gha-mjolnir@v1.4.1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.AUTO_CLOSE_ISSUE_TOKEN }}
