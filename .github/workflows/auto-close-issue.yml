@@ -1,5 +1,4 @@
-name: Close issues related to a merged pull request.
-
+name: Close issues
 on:
   pull_request:
     types: [closed]
