@@ -1,3 +1,55 @@
 spring:
   application:
     name: Anchor
+  config:
+    import: optional:file:.env[.properties]
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  datasource:
+    url: ${MYSQL_URL}
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLInnoDBDialect
+        default_schema: Anchor
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT}
+      password: ${REDIS_PASSWORD}
+
+software:
+  amazon:
+    awssdk:
+      endpoint: ${S3_ENDPOINT}
+      access-key: ${S3_ACCESS_KEY}
+      secret-key: ${S3_SECRET_KEY}
+      region: ${S3_REGION}
+      public-uri: ${S3_PUBLIC_URI}
+      directory: ${S3_DIRECTORY}
+
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+    com:
+      dig04214:
+        Anchor: DEBUG
+
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
